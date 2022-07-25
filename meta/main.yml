@@ -1,0 +1,23 @@
+galaxy_info:
+  role_name: Zabbix agent
+  author: Daniel Lowry
+  description: Install and configure the Zabbix agent on Linux
+  company: your company (optional)
+  license: GPL-3.0-only
+  min_ansible_version: "2.1"
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - jammy
+    - name: ArchLinux
+      versions:
+        - all
+
+  galaxy_tags: 
+    - Linux
+    - monitoring
+    - server
+    - Zabbix
+
+dependencies: []
