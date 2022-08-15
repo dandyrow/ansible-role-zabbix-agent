@@ -27,6 +27,11 @@ Dependencies
 
 This role depends on `dandyrow.zabbix_repo`. This role installs the repo for the version corresponding to the value set in `zbx_version`.
 
+Supported Platforms
+-------------------
+
+ - `Ubuntu 22.04`
+
 Example Playbook
 ----------------
 
