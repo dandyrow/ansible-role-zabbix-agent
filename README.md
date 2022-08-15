@@ -3,29 +3,39 @@ Ansible Role: Zabbix Agent
 
 An Ansible role that installs and configures the zabbix agent on Linux.
 
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
-
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Variables listed below used to configure the Zabbix agent alongside default value, see `default/main.yml`. For more detail on these values see the Zabbix documentation [here](https://www.zabbix.com/documentation/current/en/manual/appendix/config/zabbix_agentd):
+
+`zbx_version: "6.2"` - Change to desired version of Zabbix agent to install. Used in `zabbix_repo` role to install corresponding repository to version of Zabbix to install.
+
+`zbx_agent_server: "127.0.0.1"` - The IP address(s) and/or DNS name(s) of the Zabbix server or proxy which should passively monitor this agent.
+
+`zbx_agent_server_active: "127.0.0.1"` - The IP address(s) and/or DNS name(s) of the Zabbix server or proxy which should actively monitor this agent.
+
+`zbx_agent_hostmetadata: ""` - Defines the host metadata used for during autoregistration to apply templates (optional).
+
+`zbx_agent_hostinterface: ""` - Defines the host interface used during autoregistration to setup passive checks (optional).
+
+`zbx_pskid: ""` - Sets the PSK ID for the agent.
+
+`zbx_psk: ""` - Sets the PSK which will be stored in the file `/etc/zabbix/zabbix_agent.psk` on the host. The value of this must be longer than 32 characters and contain only letters and numbers.
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+This role depends on `dandyrow.zabbix_repo`. This role installs the repo for the version corresponding to the value set in `zbx_version`.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```yaml
+- hosts: all
+  roles:
+    - dandyrow.zabbix_repo
+    - dandyrow.zabbix_agent
+```
 
 License
 -------

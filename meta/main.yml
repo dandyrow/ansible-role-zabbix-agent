@@ -1,8 +1,8 @@
 galaxy_info:
-  role_name: Zabbix agent
+  role_name: zabbix_agent
+  namespace: dandyrow
   author: Daniel Lowry
   description: Install and configure the Zabbix agent on Linux
-  company: your company (optional)
   license: GPL-3.0-only
   min_ansible_version: "2.1"
 
@@ -15,9 +15,10 @@ galaxy_info:
         - all
 
   galaxy_tags: 
-    - Linux
+    - linux
     - monitoring
     - server
-    - Zabbix
+    - zabbix
 
-dependencies: []
+dependencies:
+  - role: dandyrow.zabbix_repo

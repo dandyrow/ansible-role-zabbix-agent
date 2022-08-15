@@ -1,0 +1,11 @@
+LogFileSize=50
+AllowKey=system.run[*]
+LogRemoteCommands=1
+Server={{ zbx_agent_server }}
+ServerActive={{ zbx_agent_server_active }}
+HostMetadata={{ zbx_agent_hostmetadata }}
+HostInterface={{ zbx_agent_hostinterface }}
+TLSConnect=psk
+TLSAccept=psk
+TLSPSKIdentity={{ zbx_pskid }}
+TLSPSKFile=/etc/zabbix/zabbix_agent.psk
