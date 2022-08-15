@@ -1,4 +1,4 @@
-Ansible Role: Zabbix Agent
+Ansible Role - Zabbix Agent [![CI](https://github.com/dandyrow/ansible-role-zabbix-agent/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/dandyrow/ansible-role-zabbix-agent/actions/workflows/CI.yml)
 =========
 
 An Ansible role that installs and configures the zabbix agent on Linux.
