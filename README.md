@@ -18,9 +18,9 @@ Variables listed below used to configure the Zabbix agent alongside default valu
 
 `zbx_agent_hostinterface: ""` - Defines the host interface used during autoregistration to setup passive checks (optional).
 
-`zbx_pskid: ""` - Sets the PSK ID for the agent.
+`zbx_pskid: "example"` - Sets the PSK ID for the agent. Default should not be used in production.
 
-`zbx_psk: ""` - Sets the PSK which will be stored in the file `/etc/zabbix/zabbix_agent.psk` on the host. The value of this must be longer than 32 characters and contain only letters and numbers.
+`zbx_psk: "7c1d185a11403fcb315ef3509d064131c515ec7b6113b3e1a8484b60b6d5dca0"` - Sets the PSK which will be stored in the file `/etc/zabbix/zabbix_agent.psk` on the host. The value of this must be longer than 32 characters and contain only letters and numbers. Default should not be used in production.
 
 Dependencies
 ------------
