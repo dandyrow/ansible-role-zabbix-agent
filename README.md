@@ -30,7 +30,9 @@ This role depends on `dandyrow.zabbix_repo`. This role installs the repo for the
 Supported Platforms
 -------------------
 
- - `Ubuntu 22.04`
+ - Ubuntu:
+   - 22.04 Jammy
+   - 20.04 Focal
 
 Example Playbook
 ----------------
