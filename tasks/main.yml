@@ -1,16 +1,16 @@
 ---
 # tasks file for zabbix-agent
-- name: Install Zabbix agent package
-  ansible.builtin.apt:
-    name: zabbix-agent
-    update_cache: true
+- name: Include distro specific vars
+  ansible.builtin.include_vars: "{{ ansible_os_family }}.yml"
+
+- ansible.builtin.include_tasks: "{{ ansible_os_family }}.yml"
 
 - name: Copy PSK file
   ansible.builtin.template:
    src: "{{ role_path }}/templates/psk.j2"
    dest: /etc/zabbix/zabbix_agent.psk
-   owner: zabbix
-   group: zabbix
+   owner: "{{ zbx_usr }}"
+   group: "{{ zbx_usr }}"
    mode: 0400
   notify: 
     - Restart zabbix-agent
@@ -24,3 +24,9 @@
     mode: 0644
   notify: 
     - Restart zabbix-agent
+
+- name: Start and enable Zabbix agent service
+  ansible.builtin.service:
+    name: zabbix-agent
+    state: started
+    enabled: true
