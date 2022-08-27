@@ -11,6 +11,11 @@ galaxy_info:
       versions:
         - jammy
         - focal
+    - name: Debian
+      versions:
+        - bullseye
+        - buster
+    - name: ArchLinux
 
   galaxy_tags: 
     - linux
