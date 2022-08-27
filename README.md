@@ -3,6 +3,10 @@ Ansible Role - Zabbix Agent [![CI](https://github.com/dandyrow/ansible-role-zabb
 
 An Ansible role that installs and configures the zabbix agent on Linux.
 
+Install from Ansible Galaxy using this command: `ansible-galaxy install dandyrow.zabbix_agent`
+
+View Ansible Galaxy page [here](https://galaxy.ansible.com/dandyrow/zabbix_agent).
+
 Role Variables
 --------------
 
