@@ -34,6 +34,12 @@ Supported Platforms
    - 22.04 Jammy
    - 20.04 Focal
 
+ - Debian:
+   - 11 Bullseye
+   - 10 Buster
+  
+ - Archlinux
+
 Example Playbook
 ----------------
 
