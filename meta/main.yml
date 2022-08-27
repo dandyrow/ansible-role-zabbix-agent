@@ -18,5 +18,4 @@ galaxy_info:
     - server
     - zabbix
 
-dependencies:
-  - role: dandyrow.zabbix_repo
+dependencies: []
