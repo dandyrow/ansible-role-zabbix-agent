@@ -8,6 +8,8 @@ Role Variables
 
 Variables listed below used to configure the Zabbix agent alongside default value, see `default/main.yml`. For more detail on these values see the Zabbix documentation [here](https://www.zabbix.com/documentation/current/en/manual/appendix/config/zabbix_agentd):
 
+`zbx_dir: /etc/zabbix` - Change to the directory where Zabbix conf file is located.
+
 `zbx_version: "6.2"` - Change to desired version of Zabbix agent to install. Used in `zabbix_repo` role to install corresponding repository to version of Zabbix to install.
 
 `zbx_agent_server: "127.0.0.1"` - The IP address(s) and/or DNS name(s) of the Zabbix server or proxy which should passively monitor this agent.
@@ -18,14 +20,9 @@ Variables listed below used to configure the Zabbix agent alongside default valu
 
 `zbx_agent_hostinterface: ""` - Defines the host interface used during autoregistration to setup passive checks (optional).
 
-`zbx_pskid: "example"` - Sets the PSK ID for the agent. Default should not be used in production.
+`zbx_agent_pskid: "example"` - Sets the PSK ID for the agent. Default should not be used in production.
 
-`zbx_psk: "7c1d185a11403fcb315ef3509d064131c515ec7b6113b3e1a8484b60b6d5dca0"` - Sets the PSK which will be stored in the file `/etc/zabbix/zabbix_agent.psk` on the host. The value of this must be longer than 32 characters and contain only letters and numbers. Default should not be used in production.
-
-Dependencies
-------------
-
-This role depends on `dandyrow.zabbix_repo`. This role installs the repo for the version corresponding to the value set in `zbx_version`.
+`zbx_agent_psk: "7c1d185a11403fcb315ef3509d064131c515ec7b6113b3e1a8484b60b6d5dca0"` - Sets the PSK which will be stored in the file `/etc/zabbix/zabbix_agent.psk` on the host. The value of this must be longer than 32 characters and contain only letters and numbers. Default should not be used in production.
 
 Supported Platforms
 -------------------
@@ -46,7 +43,6 @@ Example Playbook
 ```yaml
 - hosts: all
   roles:
-    - dandyrow.zabbix_repo
     - dandyrow.zabbix_agent
 ```
 
