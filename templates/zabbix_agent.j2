@@ -7,7 +7,9 @@ Server={{ zbx_agent_server }}
 ServerActive={{ zbx_agent_server_active }}
 HostnameItem=system.hostname
 HostMetadata={{ zbx_agent_hostmetadata }}
+{% if zbx_agent_hostinterface is defined and zbx_agent_hostinterface|length %}
 HostInterface={{ zbx_agent_hostinterface }}
+{% endif %}
 TLSConnect=psk
 TLSAccept=psk
 TLSPSKIdentity={{ zbx_agent_pskid }}
