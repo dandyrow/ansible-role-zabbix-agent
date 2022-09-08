@@ -1,16 +1,30 @@
+# {{ ansible_managed }}
 LogType=file
 LogFile=/var/log/zabbix/zabbix_agentd.log
 LogFileSize=50
+
 AllowKey=system.run[*]
 LogRemoteCommands=1
+
 Server={{ zbx_agent_server }}
 ServerActive={{ zbx_agent_server_active }}
+
+{% if zbx_agent_hostname is defined %}
+Hostname={{ zbx_agent_hostname }}
+{% else %}
 HostnameItem=system.hostname
+{% endif %}
+
+{% if zbx_agent_hostmetadata is defined %}
 HostMetadata={{ zbx_agent_hostmetadata }}
-{% if zbx_agent_hostinterface is defined and zbx_agent_hostinterface|length %}
+{% endif %}
+{% if zbx_agent_hostinterface is defined %}
 HostInterface={{ zbx_agent_hostinterface }}
 {% endif %}
+
+{% if zbx_agent_pskid is defined and zbx_agent_psk is defined %}
 TLSConnect=psk
 TLSAccept=psk
 TLSPSKIdentity={{ zbx_agent_pskid }}
 TLSPSKFile={{ zbx_dir }}/zabbix_agent.psk
+{% endif %}
