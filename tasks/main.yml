@@ -46,7 +46,7 @@
     owner: "{{ zbx_usr }}"
     group: "{{ zbx_usr }}"
     mode: 0400
-  when: zbx_agent_psk | defined
+  when: zbx_agent_psk is defined
   notify:
     - Restart zabbix-agent
 
