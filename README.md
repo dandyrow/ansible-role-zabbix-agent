@@ -65,6 +65,11 @@ License
 
 GPL-3.0-only
 
+Contributing
+------------
+
+To contribute to the project please fork it, make your changes then open a pull request. Your changes will be considered for merging provided it passes all CI tests. If any changes are required before merging these will be discussed in the pull request discussion thread.
+
 Author Information
 ------------------
 
